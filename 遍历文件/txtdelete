@@ -1,0 +1,20 @@
+# -*- coding: UTF-8 -*-
+#遍历filePath下每一个文件，删除有固定文字的句子
+import os
+import re
+def eachFile(filepath):
+    pathDir = os.listdir(filepath)
+    for allDir in pathDir:
+        child = os.path.join('%s/%s'%(filepath,allDir))
+        with open(child,"r") as f:
+            lines = f.readlines()
+        with open(child,"w") as f_w:
+            for line in lines:
+                if "判" in line:
+                    print 1
+                    continue
+                f_w.write(line)
+
+if __name__=='__main__':
+    filePath="/home/fangqin/yf/data/执行"
+    eachFile(filePath)
